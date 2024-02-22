@@ -73,6 +73,7 @@ This allows you to set attributes and options as you would if using the `AssetCo
 
 When upgrading from v3 to v4, please do the following:
 
+- Run the upgrade wizard `gallery_galleryUpgradeWizard`
 - Include the TypoScript, either via a static include or including it in your application:
     - Constants: `@import 'EXT:gallery/Configuration/TypoScript/constants'`
     - Setup: `@import 'EXT:gallery/Configuration/TypoScript/setup'`

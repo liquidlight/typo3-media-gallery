@@ -19,17 +19,12 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines'] = array_merge(
 			'title' => 'Basic - Image List',
 			'template' => 'Basic',
 		],
+		'royalslider' => [
+			'title' => 'Royal Slider',
+			'template' => 'Basic',
+		],
 	]
 );
 
-
-// // Register the default engines
-// tx_gallery::registerEngine('Cycle', 'cycle');
-// tx_gallery::registerEngine('Galleria', 'galleria');
-// tx_gallery::registerEngine('Galleriffic', 'galleriffic');
-// tx_gallery::registerEngine('GalleryView', 'galleryview');
-// tx_gallery::registerEngine('PrettyPhoto', 'prettyphoto');
-// tx_gallery::registerEngine('Fancybox', 'fancybox');
-// tx_gallery::registerEngine('Slimbox', 'slimbox');
-// tx_gallery::registerEngine('Infinite Carousel', 'infinitecarousel');
-// tx_gallery::registerEngine('RoyalSlider', 'royalslider');
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['gallery_galleryUpgradeWizard']
+	= \LiquidLight\Gallery\Upgrades\GalleryUpgradeWizard::class;
