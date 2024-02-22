@@ -1,4 +1,4 @@
-mod.wizards.newContentElement.wizardItems.plugins {
+mod.wizards.newContentElement.wizardItems.common {
 	elements {
 		liquidlight_gallery {
 			iconIdentifier = apps-clipboard-images
