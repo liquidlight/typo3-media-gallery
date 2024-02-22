@@ -1,0 +1,25 @@
+tt_content {
+	liquidlight_gallery =< lib.contentElement
+	liquidlight_gallery {
+		templateName = Gallery
+
+		templateRootPaths {
+			10 = EXT:gallery/Resources/Private/Templates/
+			20 = {$site.fluidtemplate.gallery.templateRootPath}
+		}
+		partialRootPaths {
+			10 = EXT:gallery/Resources/Private/Partials/
+			20 = {$site.fluidtemplate.gallery.partialRootPath}
+		}
+		layoutRootPaths {
+			10 = EXT:gallery/Resources/Private/Layouts/
+			20 = {$site.fluidtemplate.gallery.layoutRootPath}
+		}
+
+		dataProcessing {
+			10 < tt_content.uploads.dataProcessing.10
+			20 = LiquidLight\Gallery\DataProcessing\FlexFormProcessor
+			30 = LiquidLight\Gallery\DataProcessing\AssetProcessor
+		}
+	}
+}

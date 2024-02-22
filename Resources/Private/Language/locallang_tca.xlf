@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns:t3="http://typo3.org/schemas/xliff" version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2023-09-20T12:17:45Z" product-name="gallery">
+		<header/>
+		<body>
+			<!-- Plugin -->
+			<trans-unit id="gallery" xml:space="preserve">
+				<source>Gallery</source>
+			</trans-unit>
+			<trans-unit id="gallery.wizard.title" xml:space="preserve">
+				<source>Image Gallery</source>
+			</trans-unit>
+			<trans-unit id="gallery.wizard.description" xml:space="preserve">
+				<source>Insert an image gallery</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

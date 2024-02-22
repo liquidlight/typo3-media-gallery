@@ -1,0 +1,9 @@
+site {
+	fluidtemplate {
+		gallery {
+			layoutRootPath = EXT:gallery/Resources/Private/Layouts/
+			partialRootPath = EXT:gallery/Resources/Private/Partials/
+			templateRootPath = EXT:gallery/Resources/Private/Templates/
+		}
+	}
+}
