@@ -2,7 +2,8 @@
 	<f:if condition="{files}">
 		<f:for each="{files}" as="file" iteration="fileIterator">
 			<a href="{file.publicUrl}" {f:if(condition:data.target,then: ' target="{data.target}"' )}{f:if(condition:
-				file.title, then: ' title="{file.title}"' )}>
+				file.title, then: ' title="{file.title}"' )}{f:if(condition:
+				file.description, then: ' data-caption="{file.description}"' )}  data-fancybox="gallery-{data.uid}">
 				<f:media file="{file}" alt="{file.properties.alternative}" />
 			</a>
 		</f:for>
