@@ -2,8 +2,6 @@
 
 namespace LiquidLight\Gallery\DataProcessing;
 
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Service\FlexFormService;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 
@@ -18,7 +16,7 @@ class AssetProcessor implements DataProcessorInterface
 		$engine = $processedData['flexform']['engine'] ?? false;
 		$config = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines'][$engine] ?? false;
 
-		if (!$engine || !$config) {
+		if (!$engine || !$config || ($config['excludeAssets'] ?? false)) {
 			return $processedData;
 		}
 
