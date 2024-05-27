@@ -1,0 +1,8 @@
+/**
+ * Gallery Basic Styles
+ */
+.galleryBasic {
+	display: var(--galleryBasicDisplay, grid);
+	grid-template-columns: var(--galleryBasicGridCols, repeat(3, 1fr));
+	gap: var(--galleryBasicGap, 0.5rem);
+}
