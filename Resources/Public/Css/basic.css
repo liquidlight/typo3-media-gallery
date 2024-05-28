@@ -6,3 +6,9 @@
 	grid-template-columns: var(--galleryBasicGridCols, repeat(3, 1fr));
 	gap: var(--galleryBasicGap, 0.5rem);
 }
+
+.galleryBasic img {
+	width: var(--galleryBasicImageWidth, 100%);
+    height: var(--galleryBasicImageHeight, 100%);
+    object-fit: var(--galleryBasicImageFit, cover);
+}

@@ -19,6 +19,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines'] = array_merge(
 		'basic' => [
 			'title' => 'Basic - Image List',
 			'template' => 'Basic',
+			'styleSheet' => 'EXT:gallery/Resources/Public/Css/basic.css'
 		],
 		'carousel' => [
 			'title' => 'Fancyapps - Carousel',
