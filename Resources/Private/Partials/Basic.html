@@ -2,10 +2,9 @@
 	<f:if condition="{files}">
 		<div class="gallery galleryBasic">
 			<f:for each="{files}" as="file" iteration="fileIterator">
-				<a href="{file.publicUrl}" class="galleryItem" {f:if(condition:data.target,then: ' target="{data.target}"' )}{f:if(condition:
-					file.title, then: ' title="{file.title}"' )}>
+				<figure>
 					<f:media file="{file}" alt="{file.properties.alternative}" />
-				</a>
+				</figure>
 			</f:for>
 		</div>
 	</f:if>

@@ -8,7 +8,6 @@
 }
 
 .galleryBasic img {
-	width: var(--galleryBasicImageWidth, 100%);
-    height: var(--galleryBasicImageHeight, 100%);
     object-fit: var(--galleryBasicImageFit, cover);
+	aspect-ratio: var(--galleryBasicImageRatio, 2 / 1);
 }

@@ -12,7 +12,10 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines'] = array_merge(
 		'fancybox' => [
 			'title' => 'Fancyapps - Fancybox',
 			'template' => 'Fancybox',
-			'styleSheet' => 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.min.css',
+			'styleSheet' => [
+				'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.min.css',
+				'EXT:gallery/Resources/Public/Css/fancybox.css'
+			],
 			'javaScript' => 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.min.js',
 			'inlineJavaScript' => 'Fancybox.bind("[data-fancybox]");'
 		],
