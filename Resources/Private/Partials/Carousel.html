@@ -2,7 +2,7 @@
 	<f:if condition="{files}">
 		<div class="carousel f-carousel" id="carousel-{data.uid}">
 			<f:for each="{files}" as="file" iteration="fileIterator">
-				<div class="f-carousel__slide" data-fancybox="gallery-{data.uid}" data-src="{file.publicUrl}">
+				<div class="f-carousel__slide" data-fancybox="gallery-{data.uid}" data-thumb-src="{file.publicUrl}">
 					<f:media file="{file}" alt="{file.properties.alternative}" />
 				</div>
 			</f:for>

@@ -1,6 +1,6 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 	<f:if condition="{files}">
-		<div class="galleryBasic">
+		<div class="gallery galleryBasic">
 			<f:for each="{files}" as="file" iteration="fileIterator">
 				<a href="{file.publicUrl}" class="galleryItem" {f:if(condition:data.target,then: ' target="{data.target}"' )}{f:if(condition:
 					file.title, then: ' title="{file.title}"' )}>

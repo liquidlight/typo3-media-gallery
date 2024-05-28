@@ -20,9 +20,21 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines'] = array_merge(
 			'title' => 'Basic - Image List',
 			'template' => 'Basic',
 		],
-		'royalslider' => [
-			'title' => 'Royal Slider',
-			'template' => 'Basic',
+		'carousel' => [
+			'title' => 'Fancyapps - Carousel',
+			'template' => 'Carousel',
+			'styleSheet' => [
+				'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/carousel/carousel.css',
+				'EXT:gallery/Resources/Public/Css/carousel.css'
+			],
+			'javaScript' => 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/carousel/carousel.umd.js',
+			'inlineJavaScript' => '
+				const carousels = document.querySelectorAll(".f-carousel"),
+					carouselOptions = { adaptiveHeight: true };
+				for (const carousel of carousels) {
+					new Carousel(carousel, carouselOptions);
+				}
+			'
 		],
 	]
 );
