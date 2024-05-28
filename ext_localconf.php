@@ -14,6 +14,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines'] = array_merge(
 			'template' => 'Fancybox',
 			'styleSheet' => 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.min.css',
 			'javaScript' => 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.min.js',
+			'inlineJavaScript' => 'Fancybox.bind("[data-fancybox]");'
 		],
 		'basic' => [
 			'title' => 'Basic - Image List',
