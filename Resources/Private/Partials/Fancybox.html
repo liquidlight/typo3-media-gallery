@@ -1,11 +1,15 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
 	<f:if condition="{files}">
-		<f:for each="{files}" as="file" iteration="fileIterator">
-			<a href="{file.publicUrl}" {f:if(condition:data.target,then: ' target="{data.target}"' )}{f:if(condition:
-				file.title, then: ' title="{file.title}"' )}{f:if(condition:
-				file.description, then: ' data-caption="{file.description}"' )}  data-fancybox="gallery-{data.uid}">
-				<f:media file="{file}" alt="{file.properties.alternative}" />
-			</a>
-		</f:for>
+		<div class="gallery galleryFancybox">
+			<f:for each="{files}" as="file" iteration="fileIterator">
+				<a href="{file.publicUrl}" {f:if(condition:data.target,then: ' target="{data.target}"' )}{f:if(condition:
+					file.title, then: ' title="{file.title}"' )}{f:if(condition:
+					file.description, then: ' data-caption="{file.description}"' )}  data-fancybox="gallery-{data.uid}">
+					<f:media file="{file}" alt="{file.properties.alternative}" />
+				</a>
+			</f:for>
+		</div>
 	</f:if>
+
 </html>

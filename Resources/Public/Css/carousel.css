@@ -1,0 +1,13 @@
+/**
+ * Fancyapps - Carousel
+ */
+.f-carousel .f-carousel__slide {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--carouselSlideBg, rgb(250, 250, 250));
+}
+
+.f-carousel__dots li::before {
+	display: var(--carouselDots, none);
+}

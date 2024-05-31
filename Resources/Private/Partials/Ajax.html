@@ -1,11 +1,14 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<script>
 	<f:if condition="{files}">
-		<div class="gallery galleryBasic">
+		const gallery{data.uid} = [
 			<f:for each="{files}" as="file" iteration="fileIterator">
-				<figure>
-					<f:media file="{file}" alt="{file.properties.alternative}" />
-				</figure>
+			<f:format.raw>{</f:format.raw>
+				src: '{file.properties.identifier}',
+				caption: '{file.properties.alternative}'
+			<f:format.raw>},</f:format.raw>
 			</f:for>
-		</div>
+		];
 	</f:if>
+	</script>
 </html>

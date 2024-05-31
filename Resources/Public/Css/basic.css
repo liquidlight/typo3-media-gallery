@@ -1,0 +1,13 @@
+/**
+ * Gallery Basic Styles
+ */
+.galleryBasic {
+	display: var(--galleryBasicDisplay, grid);
+	grid-template-columns: var(--galleryBasicGridCols, repeat(3, 1fr));
+	gap: var(--galleryBasicGap, 0.5rem);
+}
+
+.galleryBasic img {
+    object-fit: var(--galleryBasicImageFit, cover);
+	aspect-ratio: var(--galleryBasicImageRatio, 2 / 1);
+}

@@ -7,15 +7,13 @@
 	</f:section>
 
 	<f:section name="Main">
-		<div class="gallery">
-			<f:if condition="{engine.template}">
-				<f:then>
-					<f:render partial="{engine.template}" arguments="{_all}" />
-				</f:then>
-				<f:else>
-					<f:render partial="Basic.html" arguments="{_all}" />
-				</f:else>
-			</f:if>
-		</div>
+		<f:if condition="{engine.template}">
+			<f:then>
+				<f:render partial="{engine.template}" arguments="{_all}" />
+			</f:then>
+			<f:else>
+				<f:render partial="Basic.html" arguments="{_all}" />
+			</f:else>
+		</f:if>
 	</f:section>
 </html>

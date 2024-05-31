@@ -1,0 +1,13 @@
+/**
+ * Fancyapps - Fancybox
+ */
+.galleryFancybox {
+	display: var(--galleryFancyboxDisplay, grid);
+	grid-template-columns: var(--galleryFancyboxGridCols, repeat(3, 1fr));
+	gap: var(--galleryFancyboxGap, 0.5rem);
+}
+
+.galleryFancybox img {
+    object-fit: var(--galleryFancyboxImageFit, cover);
+    aspect-ratio: var(--galleryFancyboxImageRatio, 2 / 1);
+}
