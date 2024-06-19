@@ -68,8 +68,7 @@ class AssetsViewHelper extends AbstractViewHelper
 					$source = is_array($item) ? $item[0] : $item;
 					$attributes = is_array($item) && isset($item[1]) ? $item[1] : [];
 					$options = is_array($item) && isset($item[2]) ? $item[2] : [];
-
-					$AssetCollector->$method($config['engine'] . $i, $source, $attributes, $options);
+					$AssetCollector->$method($config['identifier'] . $i, $source, $attributes, $options);
 				}
 			}
 		}
