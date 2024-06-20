@@ -10,7 +10,24 @@ Throughout this extension you will see and interact with the word "engine". This
 
 LL Gallery comes bundled with several libraries included, which can all be configured via the `$GLOBALS` array to alter their behaviour. You also have the option of adding your own Gallery engine if desired.
 
-### Add/edit an engine
+
+### Remove assets of an existing engine
+
+If an existing or added engine includes assets which you, yourself, are bundling in your site package or FE assets, you can remove assets in various ways.
+
+You can add the following to your `ext_localconf.php`:
+
+- `$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines']['fancybox']['excludeAllAssets'] = true` - This removes **all** assets added by the engine
+- `$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines']['fancybox']['excludeAssets'] = true` - This removes `stylesheet` and `javascript` assets added to the document
+- `$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines']['fancybox']['excludeInlineAssets'] = true` - This removes any inline assets
+
+Alternatively, you can `unset()` a specific item - e.g.:
+
+```php
+unset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines']['fancybox']['styleSheet']);
+```
+
+### Add an engine
 
 Engines are set via `$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines']` and appended to the array.
 
@@ -18,7 +35,7 @@ The key should be a simple/slugified version of the engine/plugin. This allows u
 
 The array can have several keys to add assets & define settings - all of them optional. See below for an explanation of the assets.
 
-#### Example
+#### Adding a new engine
 
 ```php
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines']['engine_key'] = [
@@ -67,7 +84,6 @@ This allows you to set attributes and options as you would if using the `AssetCo
     ]
 ]
 ```
-
 
 ## Upgrading
 
