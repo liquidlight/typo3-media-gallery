@@ -95,4 +95,5 @@ When upgrading from v3 (our internal, private package) to v4, please do the foll
     - Constants: `@import 'EXT:gallery/Configuration/TypoScript/constants'`
     - Setup: `@import 'EXT:gallery/Configuration/TypoScript/setup'`
 - Add template overrides to match the existing gallery
+- You may need to unset some assets if libraries are already loaded (e.g. Fancybox)
 - Uninstall the old gallery

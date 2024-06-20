@@ -290,6 +290,7 @@ class GalleryUpgradeWizard implements UpgradeWizardInterface
 				$this->queryBuilder->expr()->eq('uid', $this->queryBuilder->createNamedParameter($item['uid']))
 			)
 			->set('file_collections', (string)$collection)
-			->execute();
+			->execute()
+		;
 	}
 }

@@ -14,22 +14,24 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines'] = array_merge(
 			'template' => 'Fancybox',
 			'styleSheet' => [
 				'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.min.css',
-				'EXT:gallery/Resources/Public/Css/fancybox.css'
+				'EXT:gallery/Resources/Public/Css/fancybox.css',
 			],
 			'javaScript' => 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.min.js',
-			'inlineJavaScript' => 'Fancybox.bind("[data-fancybox]");'
+			'inlineJavaScript' => 'Fancybox.bind("[data-fancybox]");',
 		],
+
 		'basic' => [
 			'title' => 'Basic - Image List',
 			'template' => 'Basic',
-			'styleSheet' => 'EXT:gallery/Resources/Public/Css/basic.css'
+			'styleSheet' => 'EXT:gallery/Resources/Public/Css/basic.css',
 		],
+
 		'carousel' => [
 			'title' => 'Fancyapps - Carousel',
 			'template' => 'Carousel',
 			'styleSheet' => [
 				'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/carousel/carousel.css',
-				'EXT:gallery/Resources/Public/Css/carousel.css'
+				'EXT:gallery/Resources/Public/Css/carousel.css',
 			],
 			'javaScript' => 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/carousel/carousel.umd.js',
 			'inlineJavaScript' => '
@@ -38,7 +40,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines'] = array_merge(
 				for (const carousel of carousels) {
 					new Carousel(carousel, carouselOptions);
 				}
-			'
+			',
 		],
 	]
 );
