@@ -71,9 +71,12 @@ This allows you to set attributes and options as you would if using the `AssetCo
 
 ## Upgrading
 
-When upgrading from v3 to v4, please do the following:
+When upgrading from v3 (our internal, private package) to v4, please do the following:
 
-- Run the upgrade wizard `gallery_galleryUpgradeWizard`
+- Install the new gallery
+- Run `typo3cms upgrade:prepare` and `typo3cms upgrade:run gallery_galleryUpgradeWizard`
 - Include the TypoScript, either via a static include or including it in your application:
     - Constants: `@import 'EXT:gallery/Configuration/TypoScript/constants'`
     - Setup: `@import 'EXT:gallery/Configuration/TypoScript/setup'`
+- Add template overrides to match the existing gallery
+- Uninstall the old gallery
