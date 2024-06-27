@@ -2,6 +2,15 @@
 
 A plugin to show images with a list of different engines to display.
 
+## Installation
+
+1. `composer req liquidlight/gallery`
+2. Include the TypoScript, either by using static includes or including the files yourself
+    - Constants: `@import 'EXT:gallery/Configuration/TypoScript/constants'`
+    - Setup: `@import 'EXT:gallery/Configuration/TypoScript/setup'`
+3. Add a new gallery to a page & select images
+4. Pick your engine (library) or add your own
+
 ## Engines
 
 Throughout this extension you will see and interact with the word "engine". This describes the library/package used to render the images. Examples of engines are Fancybox and Swiper. There is also an Ajax and Basic engine included which, by default, adds no extra CSS or JavaScript.
