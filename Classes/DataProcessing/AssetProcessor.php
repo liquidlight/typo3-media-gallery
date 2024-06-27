@@ -1,6 +1,6 @@
 <?php
 
-namespace LiquidLight\Gallery\DataProcessing;
+namespace LiquidLight\MediaGallery\DataProcessing;
 
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
@@ -14,7 +14,7 @@ class AssetProcessor implements DataProcessorInterface
 		array $processedData
 	): array {
 		$engine = $processedData['flexform']['engine'] ?? false;
-		$config = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines'][$engine] ?? false;
+		$config = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['media_gallery']['engines'][$engine] ?? false;
 
 		if (!$engine || !$config) {
 			return $processedData;

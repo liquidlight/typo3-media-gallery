@@ -4,14 +4,22 @@
 		<header/>
 		<body>
 			<!-- Plugin -->
-			<trans-unit id="gallery" xml:space="preserve">
-				<source>Gallery</source>
+			<trans-unit id="media_gallery" xml:space="preserve">
+				<source>Media Gallery</source>
 			</trans-unit>
-			<trans-unit id="gallery.wizard.title" xml:space="preserve">
-				<source>Image Gallery</source>
+			<trans-unit id="media_gallery.wizard.title" xml:space="preserve">
+				<source>Media Gallery</source>
 			</trans-unit>
-			<trans-unit id="gallery.wizard.description" xml:space="preserve">
-				<source>Insert an image gallery</source>
+			<trans-unit id="media_gallery.wizard.description" xml:space="preserve">
+				<source>Insert a media gallery</source>
+			</trans-unit>
+
+			<!-- Flexform -->
+			<trans-unit id="media_gallery.flexform.engine" xml:space="preserve">
+				<source>Media Gallery Type</source>
+			</trans-unit>
+			<trans-unit id="media_gallery.flexform.please_select" xml:space="preserve">
+				<source>Please select</source>
 			</trans-unit>
 		</body>
 	</file>

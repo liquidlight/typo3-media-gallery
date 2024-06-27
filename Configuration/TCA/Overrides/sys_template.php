@@ -7,8 +7,8 @@ call_user_func(function () {
 	 * Steine TypoScript
 	 */
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
-		'gallery',
+		'media_gallery',
 		'Configuration/TypoScript',
-		'Gallery'
+		'Media Gallery'
 	);
 });

@@ -1,17 +1,16 @@
 <?php
 
 $EM_CONF[$_EXTKEY] = [
-	'title' => 'Gallery',
+	'title' => 'Media Gallery',
 	'description' => 'Advanced multi-engine front-end gallery component',
 	'category' => 'fe',
-	'author' => 'Oliver Rowlands',
-	'author_company' => 'Liquid Light Group Ltd',
-	'author_email' => 'oliver@liquidlight.co.uk',
-	'state' => 'stable',
-	'version' => '3.2.0',
+	'author' => 'Mike Street',
+	'author_company' => 'Liquid Light Ltd',
+	'author_email' => 'mike@liquidlight.co.uk',
+	'state' => 'beta',
+	'version' => '1.0.0',
 	'constraints' => [
 		'depends' => [
-			'll_base' => '',
 		],
 		'conflicts' => [
 		],

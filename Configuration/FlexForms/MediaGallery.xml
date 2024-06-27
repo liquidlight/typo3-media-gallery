@@ -5,17 +5,17 @@
 		<el>
 			<engine>
 				<TCEforms>
-					<label>LLL:EXT:ll_gallery/locallang.xml:engine</label>
+					<label>LLL:EXT:media_gallery/Resources/Private/Language/locallang_tca.xlf:media_gallery.flexform.engine</label>
 					<config>
 						<type>select</type>
 						<renderType>selectSingle</renderType>
 						<items type="array">
 							<numIndex index="0" type="array">
-								<numIndex index="0">LLL:EXT:ll_gallery/locallang.xml:please_select</numIndex>
+								<numIndex index="0">LLL:EXT:media_gallery/Resources/Private/Language/locallang_tca.xlf:media_gallery.flexform.please_select</numIndex>
 								<numIndex index="1"></numIndex>
 							</numIndex>
 						</items>
-						<itemsProcFunc>LiquidLight\Gallery\Backend\ItemsProcFunc->getEngines</itemsProcFunc>
+						<itemsProcFunc>LiquidLight\MediaGallery\Backend\ItemsProcFunc->getEngines</itemsProcFunc>
 						<maxitems>1</maxitems>
 						<size>1</size>
 					</config>

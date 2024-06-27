@@ -1,25 +1,25 @@
 tt_content {
-	liquidlight_gallery =< lib.contentElement
-	liquidlight_gallery {
-		templateName = Gallery
+	liquidlight_mediagallery =< lib.contentElement
+	liquidlight_mediagallery {
+		templateName = MediaGallery
 
 		templateRootPaths {
-			10 = EXT:gallery/Resources/Private/Templates/
-			20 = {$site.fluidtemplate.gallery.templateRootPath}
+			10 = EXT:media_gallery/Resources/Private/Templates/
+			20 = {$site.fluidtemplate.media_gallery.templateRootPath}
 		}
 		partialRootPaths {
-			10 = EXT:gallery/Resources/Private/Partials/
-			20 = {$site.fluidtemplate.gallery.partialRootPath}
+			10 = EXT:media_gallery/Resources/Private/Partials/
+			20 = {$site.fluidtemplate.media_gallery.partialRootPath}
 		}
 		layoutRootPaths {
-			10 = EXT:gallery/Resources/Private/Layouts/
-			20 = {$site.fluidtemplate.gallery.layoutRootPath}
+			10 = EXT:media_gallery/Resources/Private/Layouts/
+			20 = {$site.fluidtemplate.media_gallery.layoutRootPath}
 		}
 
 		dataProcessing {
 			10 < tt_content.uploads.dataProcessing.10
-			20 = LiquidLight\Gallery\DataProcessing\FlexFormProcessor
-			30 = LiquidLight\Gallery\DataProcessing\AssetProcessor
+			20 = LiquidLight\MediaGallery\DataProcessing\FlexFormProcessor
+			30 = LiquidLight\MediaGallery\DataProcessing\AssetProcessor
 		}
 	}
 }

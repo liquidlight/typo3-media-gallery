@@ -1,6 +1,6 @@
 <?php
 
-namespace LiquidLight\Gallery\ViewHelpers;
+namespace LiquidLight\MediaGallery\ViewHelpers;
 
 use Generator;
 use TYPO3\CMS\Core\Page\AssetCollector;

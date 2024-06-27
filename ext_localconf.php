@@ -3,18 +3,18 @@
 defined('TYPO3_MODE') or die();
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-	'@import "EXT:gallery/Configuration/TSconfig/Page/Mod/Wizards/Gallery.tsconfig"'
+	'@import "EXT:media_gallery/Configuration/TSconfig/Page/Mod/Wizards/MediaGallery.tsconfig"'
 );
 
-$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines'] = array_merge(
-	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines'] ?? [],
+$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['media_gallery']['engines'] = array_merge(
+	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['media_gallery']['engines'] ?? [],
 	[
 		'fancybox' => [
 			'title' => 'Fancyapps - Fancybox',
 			'template' => 'Fancybox',
 			'styleSheet' => [
 				'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.min.css',
-				'EXT:gallery/Resources/Public/Css/fancybox.css',
+				'EXT:media_gallery/Resources/Public/Css/fancybox.css',
 			],
 			'javaScript' => 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.min.js',
 			'inlineJavaScript' => 'Fancybox.bind("[data-fancybox]");',
@@ -23,7 +23,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines'] = array_merge(
 		'basic' => [
 			'title' => 'Basic - Image List',
 			'template' => 'Basic',
-			'styleSheet' => 'EXT:gallery/Resources/Public/Css/basic.css',
+			'styleSheet' => 'EXT:media_gallery/Resources/Public/Css/basic.css',
 		],
 
 		'carousel' => [
@@ -31,7 +31,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines'] = array_merge(
 			'template' => 'Carousel',
 			'styleSheet' => [
 				'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/carousel/carousel.css',
-				'EXT:gallery/Resources/Public/Css/carousel.css',
+				'EXT:media_gallery/Resources/Public/Css/carousel.css',
 			],
 			'javaScript' => 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/carousel/carousel.umd.js',
 			'inlineJavaScript' => '
@@ -45,5 +45,5 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines'] = array_merge(
 	]
 );
 
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['gallery_galleryUpgradeWizard']
-	= \LiquidLight\Gallery\Upgrades\GalleryUpgradeWizard::class;
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['mediagallery_galleryUpgradeWizard']
+	= \LiquidLight\MediaGallery\Upgrades\MediaGalleryUpgradeWizard::class;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace LiquidLight\Gallery\Upgrades;
+namespace LiquidLight\MediaGallery\Upgrades;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -22,7 +22,7 @@ use TYPO3\CMS\Install\Updates\ReferenceIndexUpdatedPrerequisite;
  * @package TYPO3
  * @subpackage gallery
  */
-class GalleryUpgradeWizard implements UpgradeWizardInterface
+class MediaGalleryUpgradeWizard implements UpgradeWizardInterface
 {
 	/**
 	 * @var FlexFormService
@@ -52,7 +52,7 @@ class GalleryUpgradeWizard implements UpgradeWizardInterface
 	 */
 	public function getIdentifier(): string
 	{
-		return 'gallery_galleryUpgradeWizard';
+		return 'mediagallery_galleryUpgradeWizard';
 	}
 
 	/**
@@ -89,7 +89,7 @@ class GalleryUpgradeWizard implements UpgradeWizardInterface
 		foreach ($legacy as $item) {
 			$flexformData = $this->flexFormService->convertFlexFormContentToArray($item['pi_flexform']);
 
-			if (!isset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines'][$flexformData['engine']])) {
+			if (!isset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['media_gallery']['engines'][$flexformData['engine']])) {
 				echo $flexformData['engine'] . ' is not supported, skipping: ' . $item['uid'];
 			}
 
@@ -179,7 +179,7 @@ class GalleryUpgradeWizard implements UpgradeWizardInterface
 			->where(
 				$this->queryBuilder->expr()->eq('uid', $this->queryBuilder->createNamedParameter($item['uid']))
 			)
-			->set('CType', 'liquidlight_gallery')
+			->set('CType', 'liquidlight_mediagallery')
 			->set('list_type', '')
 			->set('pi_flexform', '
 				<?xml version="1.0" encoding="utf-8" standalone="yes" ?>

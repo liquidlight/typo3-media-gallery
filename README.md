@@ -1,13 +1,13 @@
-# Gallery
+# TYPO3 Media Gallery
 
 A plugin to show images with a list of different engines to display.
 
 ## Installation
 
-1. `composer req liquidlight/gallery`
+1. `composer req liquidlight/media-gallery`
 2. Include the TypoScript, either by using static includes or including the files yourself
-    - Constants: `@import 'EXT:gallery/Configuration/TypoScript/constants'`
-    - Setup: `@import 'EXT:gallery/Configuration/TypoScript/setup'`
+    - Constants: `@import 'EXT:media_gallery/Configuration/TypoScript/constants'`
+    - Setup: `@import 'EXT:media_gallery/Configuration/TypoScript/setup'`
 3. Add a new gallery to a page & select images
 4. Pick your engine (library) or add your own
 
@@ -17,7 +17,7 @@ Throughout this extension you will see and interact with the word "engine". This
 
 ## Configuration
 
-LL Gallery comes bundled with several libraries included, which can all be configured via the `$GLOBALS` array to alter their behaviour. You also have the option of adding your own Gallery engine if desired.
+Media Gallery comes bundled with several libraries included, which can all be configured via the `$GLOBALS` array to alter their behaviour. You also have the option of adding your own media gallery engine if desired.
 
 
 ### Remove assets of an existing engine
@@ -26,19 +26,19 @@ If an existing or added engine includes assets which you, yourself, are bundling
 
 You can add the following to your `ext_localconf.php`:
 
-- `$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines']['fancybox']['excludeAllAssets'] = true` - This removes **all** assets added by the engine
-- `$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines']['fancybox']['excludeAssets'] = true` - This removes `stylesheet` and `javascript` assets added to the document
-- `$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines']['fancybox']['excludeInlineAssets'] = true` - This removes any inline assets
+- `$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['media_gallery']['engines']['fancybox']['excludeAllAssets'] = true` - This removes **all** assets added by the engine
+- `$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['media_gallery']['engines']['fancybox']['excludeAssets'] = true` - This removes `stylesheet` and `javascript` assets added to the document
+- `$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['media_gallery']['engines']['fancybox']['excludeInlineAssets'] = true` - This removes any inline assets
 
 Alternatively, you can `unset()` a specific item - e.g.:
 
 ```php
-unset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines']['fancybox']['styleSheet']);
+unset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['media_gallery']['engines']['fancybox']['styleSheet']);
 ```
 
 ### Add an engine
 
-Engines are set via `$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines']` and appended to the array.
+Engines are set via `$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['media_gallery']['engines']` and appended to the array.
 
 The key should be a simple/slugified version of the engine/plugin. This allows unsetting and overriding should that be required.
 
@@ -47,7 +47,7 @@ The array can have several keys to add assets & define settings - all of them op
 #### Adding a new engine
 
 ```php
-$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines']['engine_key'] = [
+$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['media_gallery']['engines']['engine_key'] = [
     'title' => 'Nice title - shown in the drop down',
     'template' => 'Engine', // The name of the partial used (can be omitted to use the "Basic" one)
     'styleSheet' => '', // CSS to load
@@ -102,8 +102,8 @@ If you wish to override any [templates](/Resources/Private/Templates/) or [parti
 site {
 	fluidtemplate {
 		gallery {
-			partialRootPath = EXT:###YOUR EXT###/Resources/Private/Partials/Gallery/
-			templateRootPath = EXT:###YOUR EXT###/Resources/Private/Templates/Gallery/
+			partialRootPath = EXT:###YOUR EXT###/Resources/Private/Partials/MediaGallery/
+			templateRootPath = EXT:###YOUR EXT###/Resources/Private/Templates/MediaGallery/
 		}
 	}
 }
@@ -118,10 +118,10 @@ Alternatively, you can add them directly to the [`setup.typoscript`](/Configurat
 When upgrading from v3 (our internal, private package) to v4, please do the following:
 
 - Install the new gallery
-- Run `typo3cms upgrade:prepare` and `typo3cms upgrade:run gallery_galleryUpgradeWizard`
+- Run `typo3cms upgrade:prepare` and `typo3cms upgrade:run mediagallery_galleryUpgradeWizard`
 - Include the TypoScript, either via a static include or including it in your application:
-    - Constants: `@import 'EXT:gallery/Configuration/TypoScript/constants'`
-    - Setup: `@import 'EXT:gallery/Configuration/TypoScript/setup'`
+    - Constants: `@import 'EXT:media_gallery/Configuration/TypoScript/constants'`
+    - Setup: `@import 'EXT:media_gallery/Configuration/TypoScript/setup'`
 - Add template overrides to match the existing gallery
 - You may need to unset some assets if libraries are already loaded (e.g. Fancybox)
 - Uninstall the old gallery

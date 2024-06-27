@@ -1,6 +1,6 @@
 <?php
 
-namespace LiquidLight\Gallery\Backend;
+namespace LiquidLight\MediaGallery\Backend;
 
 class ItemsProcFunc
 {
@@ -15,7 +15,7 @@ class ItemsProcFunc
 	 */
 	public function getEngines(array $config): array
 	{
-		$engines = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gallery']['engines'] ?? [];
+		$engines = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['media_gallery']['engines'] ?? [];
 		ksort($engines);
 
 		foreach ($engines as $key => $value) {
