@@ -85,6 +85,25 @@ This allows you to set attributes and options as you would if using the `AssetCo
 ]
 ```
 
+## Templates
+
+If you wish to override any [templates](/Resources/Private/Templates/) or [partials](/Resources/Private/Partials/), add the following to your `constants.typoscript`.
+
+```
+site {
+	fluidtemplate {
+		gallery {
+			partialRootPath = EXT:###YOUR EXT###/Resources/Private/Partials/Gallery/
+			templateRootPath = EXT:###YOUR EXT###/Resources/Private/Templates/Gallery/
+		}
+	}
+}
+```
+
+Alternatively, you can add them directly to the [`setup.typoscript`](/Configuration/TypoScript/setup.typoscript)
+
+**Note**: The custom `<gallery:assets engine="{engine}" />` view helper is how the assets are injected into the template - ensure your template contains this if overriding the `Gallery.html`
+
 ## Upgrading
 
 When upgrading from v3 (our internal, private package) to v4, please do the following:
