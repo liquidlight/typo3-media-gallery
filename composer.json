@@ -2,7 +2,7 @@
     "name": "liquidlight/media-gallery",
     "description": "Advanced multi-engine front-end gallery component",
     "type": "typo3-cms-extension",
-    "version": "3.2.0",
+    "version": "0.0.0",
     "authors": [
         {
             "name": "Mike Street",
@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "typo3/cms-core": "^9.5 || ^10.4 || ^11.5"
+        "typo3/cms-core": "^10.4 || ^11.5"
     },
     "minimum-stability": "stable",
     "autoload": {
