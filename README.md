@@ -124,4 +124,5 @@ When upgrading from v3 (our internal, private package) to v4, please do the foll
     - Setup: `@import 'EXT:media_gallery/Configuration/TypoScript/setup'`
 - Add template overrides to match the existing gallery
 - You may need to unset some assets if libraries are already loaded (e.g. Fancybox)
+- Look at unsetting any engines not used
 - Uninstall the old gallery
