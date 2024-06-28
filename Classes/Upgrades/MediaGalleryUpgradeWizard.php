@@ -7,7 +7,9 @@ namespace LiquidLight\MediaGallery\Upgrades;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Service\FlexFormService;
+use TYPO3\CMS\Install\Updates\ChattyInterface;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
+use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
 use TYPO3\CMS\Install\Updates\ReferenceIndexUpdatedPrerequisite;
@@ -22,7 +24,7 @@ use TYPO3\CMS\Install\Updates\ReferenceIndexUpdatedPrerequisite;
  * @package TYPO3
  * @subpackage gallery
  */
-class MediaGalleryUpgradeWizard implements UpgradeWizardInterface
+class MediaGalleryUpgradeWizard implements UpgradeWizardInterface, ChattyInterface
 {
 	/**
 	 * @var FlexFormService
@@ -33,6 +35,11 @@ class MediaGalleryUpgradeWizard implements UpgradeWizardInterface
 	 * @var QueryBuilder
 	 */
 	protected $queryBuilder;
+
+	/**
+	 * @var OutputInterface
+	 */
+	protected $output;
 
 	public const TABLE_NAME = 'tt_content';
 
@@ -75,6 +82,11 @@ class MediaGalleryUpgradeWizard implements UpgradeWizardInterface
 		return 'Upgrades plugins using a legacy ll_gallery plugin to the new gallery';
 	}
 
+	public function setOutput(OutputInterface $output): void
+	{
+		$this->output = $output;
+	}
+
 	/**
 	 * Execute the update
 	 *
@@ -84,14 +96,31 @@ class MediaGalleryUpgradeWizard implements UpgradeWizardInterface
 	 */
 	public function executeUpdate(): bool
 	{
+		// Get the legacy plugins
 		$legacy = $this->getLegacyGalleryPlugins();
 
+		// Set default vars
+		$mediaGalleryEngines = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['media_gallery']['engines'];
+		$engines = [];
+		$failings = [];
+
+		// Output opening info
+		$this->output->writeln(count($legacy) . ' legacy gallery plugins found. Processing:');
+		$this->output->writeln('');
+
 		foreach ($legacy as $item) {
+			// Get current flexform
 			$flexformData = $this->flexFormService->convertFlexFormContentToArray($item['pi_flexform']);
 
-			if (!isset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['media_gallery']['engines'][$flexformData['engine']])) {
-				echo $flexformData['engine'] . ' is not supported, skipping: ' . $item['uid'];
+			// Do we have a matching gallery?
+			if (!isset($mediaGalleryEngines[$flexformData['engine']])) {
+				$this->output->writeln('!! ' . $flexformData['engine'] . ' is not supported, skipping: ' . $item['uid']);
+				$failings[] = $item['uid'] . ' - ' . $flexformData['engine'];
+				continue;
 			}
+
+			// Output the UID
+			$this->output->writeln($item['uid']);
 
 			if ($flexformData['source'] == 'records') {
 				$this->updateIndividualImageRecords($item);
@@ -101,6 +130,37 @@ class MediaGalleryUpgradeWizard implements UpgradeWizardInterface
 			}
 
 			$this->updateItemType($item, $flexformData['engine']);
+
+			// Count the number of engines
+			$engines[$flexformData['engine']] = ($engines[$flexformData['engine']] ?? 0) + 1;
+		}
+
+		$this->output->writeln('');
+
+		// Output stats about what engines were used
+		$this->output->writeln('The following engines were used:');
+		foreach ($engines as $engine => $count) {
+			$this->output->writeln('* ' . $engine . ' - ' . $count . ' times');
+			// Remove the used engine so we can show which ones aren't used
+			unset($mediaGalleryEngines[$engine]);
+		}
+		$this->output->writeln('');
+
+		// Re-output failed items
+		if (count($failings)) {
+			$this->output->writeln('The following gallery updates failed');
+			foreach (array_keys($mediaGalleryEngines) as $engine) {
+				$this->output->writeln('* ' . $engine);
+			}
+			$this->output->writeln('');
+		}
+
+		if (count($mediaGalleryEngines)) {
+			$this->output->writeln('These default media_gallery engines were not used (consider unsetting)');
+			foreach (array_keys($mediaGalleryEngines) as $engine) {
+				$this->output->writeln('* ' . $engine);
+			}
+			$this->output->writeln('');
 		}
 
 		return true;
