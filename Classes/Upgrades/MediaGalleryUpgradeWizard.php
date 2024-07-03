@@ -149,8 +149,8 @@ class MediaGalleryUpgradeWizard implements UpgradeWizardInterface, ChattyInterfa
 		// Re-output failed items
 		if (count($failings)) {
 			$this->output->writeln('The following gallery updates failed');
-			foreach (array_keys($mediaGalleryEngines) as $engine) {
-				$this->output->writeln('* ' . $engine);
+			foreach ($failings as $fail) {
+				$this->output->writeln('* ' . $fail);
 			}
 			$this->output->writeln('');
 		}
@@ -313,8 +313,8 @@ class MediaGalleryUpgradeWizard implements UpgradeWizardInterface, ChattyInterfa
 			->fetchAllAssociative()
 		;
 
-		if (count($existing)) {
-			return $existing[0];
+		if (count($existing) && isset($existing[0]['uid'])) {
+			return $existing[0]['uid'];
 		}
 
 		$queryBuilder
