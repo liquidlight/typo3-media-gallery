@@ -10,6 +10,11 @@ A plugin to show images with a list of different engines to display.
     - Setup: `@import 'EXT:media_gallery/Configuration/TypoScript/setup'`
 3. Add a new gallery to a page & select images
 4. Pick your engine (library) or add your own
+5. Allow the following permissions (if required)
+    - **Tables (listing)**: File collection
+    - **Tables (modify)**: File collection
+    - **Page Content**: File collections
+    - **Page Content: Type**: [Allow] Media Gallery
 
 ## Engines
 
@@ -136,8 +141,26 @@ When upgrading from v3 (our internal, private package) to v4, please do the foll
 - Add template overrides to match the existing gallery
 - You may need to unset some assets if libraries are already loaded (e.g. Fancybox)
 - Look at [unsetting any engines](#remove-an-engine) not used
+- Deploy (if required, run conversion script on live after backing up the database)
+- Enable the following for **Role - Editor**
+    - **Tables (listing)**: File collection
+    - **Tables (modify)**: File collection
+    - **Page Content**: File collections
+    - **Page Content: Type**: [Allow] Media Gallery
 - Create a folder called "File Collections" inside Resources
     - Move any File Collections to that PID (`UPDATE sys_file_collection SET pid = ''`)
+    - Set `TSconfig` on the page to be:
+
+```
+### Restrict content types ###
+mod.web_list {
+  allowedNewTables = sys_file_collection
+  hideTables = tt_content
+}
+```
+
+Once deployed and upgraded on live:
+
 - Uninstall the old gallery
     - Remove old templates
     - Remove any TypoScript configuration
