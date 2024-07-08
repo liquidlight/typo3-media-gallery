@@ -5,10 +5,13 @@ declare(strict_types=1);
 namespace LiquidLight\MediaGallery\Upgrades;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use Symfony\Component\Console\Helper\Table;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Service\FlexFormService;
 use TYPO3\CMS\Install\Updates\ChattyInterface;
+use Symfony\Component\Console\Helper\TableCell;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
+use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
@@ -108,19 +111,23 @@ class MediaGalleryUpgradeWizard implements UpgradeWizardInterface, ChattyInterfa
 		$this->output->writeln(count($legacy) . ' legacy gallery plugins found. Processing:');
 		$this->output->writeln('');
 
+		// Create table
+		$table = new Table($this->output);
+		$table->setHeaders(['pid', 'uid', 'header', 'engine', 'source']);
+
 		foreach ($legacy as $item) {
 			// Get current flexform
 			$flexformData = $this->flexFormService->convertFlexFormContentToArray($item['pi_flexform']);
 
 			// Do we have a matching gallery?
 			if (!isset($mediaGalleryEngines[$flexformData['engine']])) {
-				$this->output->writeln('!! ' . $flexformData['engine'] . ' is not supported, skipping: ' . $item['uid']);
+				$table->addRow([$item['pid'], $item['uid'], $item['header'], new TableCell('!! ' . $flexformData['engine'] . ' is not supported, skipping', ['colspan' => 2])]);
 				$failings[] = $item['uid'] . ' - ' . $flexformData['engine'];
 				continue;
 			}
 
 			// Output the UID
-			$this->output->writeln($item['uid']);
+			$table->addRow([$item['pid'], $item['uid'], $item['header'], $flexformData['engine'], $flexformData['source']]);
 
 			if ($flexformData['source'] == 'records') {
 				$this->updateIndividualImageRecords($item);
@@ -134,6 +141,8 @@ class MediaGalleryUpgradeWizard implements UpgradeWizardInterface, ChattyInterfa
 			// Count the number of engines
 			$engines[$flexformData['engine']] = ($engines[$flexformData['engine']] ?? 0) + 1;
 		}
+
+		$table->render();
 
 		$this->output->writeln('');
 
