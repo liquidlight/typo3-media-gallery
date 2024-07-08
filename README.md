@@ -36,6 +36,17 @@ Alternatively, you can `unset()` a specific item - e.g.:
 unset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['media_gallery']['engines']['fancybox']['styleSheet']);
 ```
 
+### Remove an engine
+
+It might be that you don't want some (or any) of the default engines to be available. In which case, you can unset the entire engine.
+
+For example, to remove the base & carousel engines:
+
+```php
+unset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['media_gallery']['engines']['basic']);
+unset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['media_gallery']['engines']['carousel']);
+```
+
 ### Add an engine
 
 Engines are set via `$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['media_gallery']['engines']` and appended to the array.
@@ -101,7 +112,7 @@ If you wish to override any [templates](/Resources/Private/Templates/) or [parti
 ```
 site {
 	fluidtemplate {
-		gallery {
+		media_gallery {
 			partialRootPath = EXT:###YOUR EXT###/Resources/Private/Partials/MediaGallery/
 			templateRootPath = EXT:###YOUR EXT###/Resources/Private/Templates/MediaGallery/
 		}
