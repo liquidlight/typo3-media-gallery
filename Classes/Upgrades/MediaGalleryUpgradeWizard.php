@@ -123,7 +123,6 @@ class MediaGalleryUpgradeWizard implements UpgradeWizardInterface, ChattyInterfa
 			if (!isset($mediaGalleryEngines[$flexformData['engine']])) {
 				$table->addRow([$item['pid'], $item['uid'], $item['header'], new TableCell('!! ' . $flexformData['engine'] . ' is not supported, skipping', ['colspan' => 2])]);
 				$failings[] = $item['uid'] . ' - ' . $flexformData['engine'];
-				continue;
 			}
 
 			// Output the UID
