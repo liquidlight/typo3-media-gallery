@@ -44,6 +44,3 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['media_gallery']['engines'] = array_merge
 		],
 	]
 );
-
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['mediagallery_galleryUpgradeWizard']
-	= \LiquidLight\MediaGallery\Upgrades\MediaGalleryUpgradeWizard::class;
