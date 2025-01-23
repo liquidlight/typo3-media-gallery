@@ -22,5 +22,6 @@
         "typo3/cms": {
             "extension-key": "media_gallery"
         }
-    }
+    },
+    "abandoned": "liquidlight/typo3-media-gallery"
 }
