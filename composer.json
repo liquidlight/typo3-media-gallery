@@ -5,6 +5,15 @@
     "version": "1.1.0",
     "authors": [
         {
+            "name": "Liquid Light",
+            "email": "info@liquidlight.co.uk",
+            "homepage": "https://www.liquidlight.co.uk/"
+        },
+        {
+            "name": "João Augusto",
+            "email": "joao@liquidlight.co.uk"
+        },
+        {
             "name": "Mike Street",
             "email": "mike@liquidlight.co.uk"
         }
