@@ -1,12 +1,10 @@
 # TYPO3 Media Gallery
 
-⚠️ The extension is being renamed to `liquidlight/typo3-media-gallery`
-
 A plugin to show images with a list of different engines to display.
 
 ## Installation
 
-1. `composer req liquidlight/media-gallery`
+1. `composer req liquidlight/typo3-media-gallery`
 2. Include the TypoScript, either by using static includes or including the files yourself
     - Constants: `@import 'EXT:media_gallery/Configuration/TypoScript/constants'`
     - Setup: `@import 'EXT:media_gallery/Configuration/TypoScript/setup'`

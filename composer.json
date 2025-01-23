@@ -1,5 +1,5 @@
 {
-    "name": "liquidlight/media-gallery",
+    "name": "liquidlight/typo3-media-gallery",
     "description": "Advanced multi-engine front-end gallery component",
     "type": "typo3-cms-extension",
     "version": "1.0.1",
@@ -23,5 +23,7 @@
             "extension-key": "media_gallery"
         }
     },
-    "abandoned": "liquidlight/typo3-media-gallery"
+    "replace": {
+        "liquidlight/media-gallery": "self.version"
+    }
 }
