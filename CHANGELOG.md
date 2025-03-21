@@ -1,3 +1,12 @@
+# 2.0.0
+
+**21st March 2025**
+
+#### Dependencies
+
+- Drop TYPO3 10 support
+- Add TYPO3 12 support
+
 # 1.1.0
 
 **23rd January 2025**
