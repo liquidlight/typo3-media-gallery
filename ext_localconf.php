@@ -2,9 +2,10 @@
 
 defined('TYPO3_MODE') or die();
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-	'@import "EXT:media_gallery/Configuration/TSconfig/Page/Mod/Wizards/MediaGallery.tsconfig"'
-);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
+	@import "EXT:media_gallery/Configuration/TSconfig/Page/Mod/Wizards/ContentGallery.tsconfig"
+	@import "EXT:media_gallery/Configuration/TSconfig/Page/Mod/Wizards/MediaGallery.tsconfig"
+');
 
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['media_gallery']['engines'] = array_merge(
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['media_gallery']['engines'] ?? [],

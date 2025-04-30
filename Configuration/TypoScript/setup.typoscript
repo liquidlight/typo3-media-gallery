@@ -1,24 +1,59 @@
+lib.mediaGallery =< tt_content.uploads
+lib.mediaGallery {
+	templateName = MediaGallery
+
+	templateRootPaths {
+		10 = EXT:media_gallery/Resources/Private/Templates/
+		20 = {$site.fluidtemplate.media_gallery.templateRootPath}
+	}
+	partialRootPaths {
+		10 = EXT:media_gallery/Resources/Private/Partials/
+		20 = {$site.fluidtemplate.media_gallery.partialRootPath}
+	}
+	layoutRootPaths {
+		10 = EXT:media_gallery/Resources/Private/Layouts/
+		20 = {$site.fluidtemplate.media_gallery.layoutRootPath}
+	}
+
+	dataProcessing {
+		100 = LiquidLight\MediaGallery\DataProcessing\FlexFormProcessor
+		110 = LiquidLight\MediaGallery\DataProcessing\AssetProcessor
+	}
+}
+
 tt_content {
-	liquidlight_mediagallery =< tt_content.uploads
+	liquidlight_mediagallery =< lib.mediaGallery
 	liquidlight_mediagallery {
 		templateName = MediaGallery
 
 		templateRootPaths {
-			10 = EXT:media_gallery/Resources/Private/Templates/
-			20 = {$site.fluidtemplate.media_gallery.templateRootPath}
+			30 = {$site.fluidtemplate.media_gallery.media.templateRootPath}
 		}
 		partialRootPaths {
-			10 = EXT:media_gallery/Resources/Private/Partials/
-			20 = {$site.fluidtemplate.media_gallery.partialRootPath}
+			30 = {$site.fluidtemplate.media_gallery.media.partialRootPath}
 		}
 		layoutRootPaths {
-			10 = EXT:media_gallery/Resources/Private/Layouts/
-			20 = {$site.fluidtemplate.media_gallery.layoutRootPath}
+			30 = {$site.fluidtemplate.media_gallery.media.layoutRootPath}
+		}
+	}
+
+	liquidlight_contentgallery =< lib.mediaGallery
+	liquidlight_contentgallery {
+		templateName = ContentGallery
+
+		templateRootPaths {
+			30 = {$site.fluidtemplate.media_gallery.content.templateRootPath}
+		}
+		partialRootPaths {
+			30 = {$site.fluidtemplate.media_gallery.content.partialRootPath}
+		}
+		layoutRootPaths {
+			30 = {$site.fluidtemplate.media_gallery.content.layoutRootPath}
 		}
 
 		dataProcessing {
-			100 = LiquidLight\MediaGallery\DataProcessing\FlexFormProcessor
-			110 = LiquidLight\MediaGallery\DataProcessing\AssetProcessor
+			120 = LiquidLight\MediaGallery\DataProcessing\ContentProcessor
 		}
 	}
+
 }

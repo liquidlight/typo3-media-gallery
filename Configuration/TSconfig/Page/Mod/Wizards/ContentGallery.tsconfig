@@ -1,0 +1,14 @@
+mod.wizards.newContentElement.wizardItems.common {
+	elements {
+		liquidlight_contentgallery {
+			iconIdentifier = apps-clipboard-images
+			title = LLL:EXT:media_gallery/Resources/Private/Language/locallang_tca.xlf:content_gallery.wizard.title
+			description = LLL:EXT:media_gallery/Resources/Private/Language/locallang_tca.xlf:content_gallery.wizard.description
+			tt_content_defValues {
+				CType = liquidlight_contentgallery
+			}
+
+		}
+	}
+	show := addToList(liquidlight_contentgallery)
+}
