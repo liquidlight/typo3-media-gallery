@@ -9,10 +9,10 @@
 	<f:section name="Main">
 		<f:if condition="{engine.template}">
 			<f:then>
-				<f:render partial="Media/{engine.template}" arguments="{_all}" />
+				<f:render partial="Content/{engine.template}" arguments="{_all}" />
 			</f:then>
 			<f:else>
-				<f:render partial="Media/Basic.html" arguments="{_all}" />
+				<f:render partial="Content/Basic.html" arguments="{_all}" />
 			</f:else>
 		</f:if>
 	</f:section>

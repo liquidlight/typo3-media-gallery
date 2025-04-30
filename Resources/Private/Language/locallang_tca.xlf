@@ -3,6 +3,8 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2023-09-20T12:17:45Z" product-name="gallery">
 		<header/>
 		<body>
+			<!-- ========== MEDIA GALLERY ========== -->
+
 			<!-- Plugin -->
 			<trans-unit id="media_gallery" xml:space="preserve">
 				<source>Media Gallery</source>
@@ -17,6 +19,27 @@
 			<!-- Flexform -->
 			<trans-unit id="media_gallery.flexform.engine" xml:space="preserve">
 				<source>Media Gallery Type</source>
+			</trans-unit>
+			<trans-unit id="media_gallery.flexform.please_select" xml:space="preserve">
+				<source>Please select</source>
+			</trans-unit>
+
+			<!-- ========== CONTENT GALLERY ========== -->
+
+			<!-- Plugin -->
+			<trans-unit id="content_gallery" xml:space="preserve">
+				<source>Content Gallery</source>
+			</trans-unit>
+			<trans-unit id="content_gallery.wizard.title" xml:space="preserve">
+				<source>Content Gallery</source>
+			</trans-unit>
+			<trans-unit id="content_gallery.wizard.description" xml:space="preserve">
+				<source>Insert a content gallery</source>
+			</trans-unit>
+
+			<!-- Flexform -->
+			<trans-unit id="content_gallery.flexform.engine" xml:space="preserve">
+				<source>Content Gallery Type</source>
 			</trans-unit>
 			<trans-unit id="media_gallery.flexform.please_select" xml:space="preserve">
 				<source>Please select</source>

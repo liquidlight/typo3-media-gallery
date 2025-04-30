@@ -5,5 +5,10 @@ site {
 			partialRootPath = EXT:media_gallery/Resources/Private/Partials/
 			templateRootPath = EXT:media_gallery/Resources/Private/Templates/
 		}
+		content_gallery {
+			layoutRootPath = EXT:media_gallery/Resources/Private/Layouts/
+			partialRootPath = EXT:media_gallery/Resources/Private/Partials/
+			templateRootPath = EXT:media_gallery/Resources/Private/Templates/
+		}
 	}
 }
