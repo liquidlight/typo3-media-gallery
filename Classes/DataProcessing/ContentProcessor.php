@@ -69,7 +69,7 @@ class ContentProcessor implements DataProcessorInterface
 		$record['renderedContent'] = $this->cObj->render(
 			$this->getContentRecordRenderer(),
 			[
-				'source' => $record['record']['uid'],
+				'source' => $record['uid'],
 				'tables' => $record['table'],
 			]
 		);
