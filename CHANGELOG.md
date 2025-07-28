@@ -1,3 +1,11 @@
+# 2.1.0
+
+**28th July 2025**
+
+#### Feature
+
+- Add Content Gallery to allow creating a slider out of HTML elements
+
 # 2.0.0
 
 **21st March 2025**

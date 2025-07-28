@@ -2,7 +2,7 @@
     "name": "liquidlight/typo3-media-gallery",
     "description": "Advanced multi-engine front-end gallery component",
     "type": "typo3-cms-extension",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "authors": [
         {
             "name": "Liquid Light",
