@@ -1,3 +1,16 @@
+# 1.2.0
+
+**28th July 2025**
+
+#### Feature
+
+- Add Content Gallery to allow creating a slider out of HTML elements
+
+#### Fix
+
+- Remove unavailable array index
+
+
 # 1.1.0
 
 **23rd January 2025**
