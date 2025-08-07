@@ -1,6 +1,6 @@
 # TYPO3 Media Gallery
 
-A plugin to show images with a list of different engines to display.
+A plugin to show images or content with a list of different engines to display.
 
 ## Installation
 
@@ -8,7 +8,7 @@ A plugin to show images with a list of different engines to display.
 2. Include the TypoScript, either by using static includes or including the files yourself
     - Constants: `@import 'EXT:media_gallery/Configuration/TypoScript/constants'`
     - Setup: `@import 'EXT:media_gallery/Configuration/TypoScript/setup'`
-3. Add a new gallery to a page & select images
+3. Add a new Media or Content gallery to a page & select images (or content)
 4. Pick your engine (library) or add your own
 5. Allow the following permissions (if required)
     - **Tables (listing)**: File collection
@@ -23,7 +23,6 @@ Throughout this extension you will see and interact with the word "engine". This
 ## Configuration
 
 Media Gallery comes bundled with several libraries included, which can all be configured via the `$GLOBALS` array to alter their behaviour. You also have the option of adding your own media gallery engine if desired.
-
 
 ### Remove assets of an existing engine
 
@@ -128,39 +127,3 @@ site {
 Alternatively, you can add them directly to the [`setup.typoscript`](/Configuration/TypoScript/setup.typoscript)
 
 **Note**: The custom `<gallery:assets engine="{engine}" />` view helper is how the assets are injected into the template - ensure your template contains this if overriding the `Gallery.html`
-
-## Upgrading
-
-When upgrading from v3 (our internal, private package) to v4, please do the following:
-
-- Install the new gallery
-- Run `typo3cms upgrade:prepare` and `typo3cms upgrade:run mediagallery_galleryUpgradeWizard`
-- Include the TypoScript, either via a static include or including it in your application:
-    - Constants: `@import 'EXT:media_gallery/Configuration/TypoScript/constants'`
-    - Setup: `@import 'EXT:media_gallery/Configuration/TypoScript/setup'`
-- Add template overrides to match the existing gallery
-- You may need to unset some assets if libraries are already loaded (e.g. Fancybox)
-- Look at [unsetting any engines](#remove-an-engine) not used
-- Deploy (if required, run conversion script on live after backing up the database)
-- Enable the following for **Role - Editor**
-    - **Tables (listing)**: File collection
-    - **Tables (modify)**: File collection
-    - **Page Content**: File collections
-    - **Page Content: Type**: [Allow] Media Gallery
-- Create a folder called "File Collections" inside Resources
-    - Move any File Collections to that PID (`UPDATE sys_file_collection SET pid = ''`)
-    - Set `TSconfig` on the page to be:
-
-```
-### Restrict content types ###
-mod.web_list {
-  allowedNewTables = sys_file_collection
-  hideTables = tt_content
-}
-```
-
-Once deployed and upgraded on live:
-
-- Uninstall the old gallery
-    - Remove old templates
-    - Remove any TypoScript configuration
