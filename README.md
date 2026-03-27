@@ -5,12 +5,14 @@ A plugin to show images or content with a list of different engines to display.
 ## Installation
 
 1. `composer req liquidlight/typo3-media-gallery`
-2. Include the TypoScript, either by using static includes or including the files yourself
-    - Constants: `@import 'EXT:media_gallery/Configuration/TypoScript/constants'`
-    - Setup: `@import 'EXT:media_gallery/Configuration/TypoScript/setup'`
+2. Include the TypoScript
+    - If using Site Sets, add `- liquidlight/media-gallery` under `dependencies`
+    - Otherwise, include either by using static includes or including the files yourself
+        - Constants: `@import 'EXT:media_gallery/Configuration/TypoScript/constants'`
+        - Setup: `@import 'EXT:media_gallery/Configuration/TypoScript/setup'`
 3. Add a new Media or Content gallery to a page & select images (or content)
 4. Pick your engine (library) or add your own
-5. Allow the following permissions (if required)
+5. Allow the following permissions for non-admins (if required)
     - **Tables (listing)**: File collection
     - **Tables (modify)**: File collection
     - **Page Content**: File collections
