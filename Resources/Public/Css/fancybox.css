@@ -8,6 +8,6 @@
 }
 
 .galleryFancybox img {
-    object-fit: var(--galleryFancyboxImageFit, cover);
-    aspect-ratio: var(--galleryFancyboxImageRatio, 2 / 1);
+	object-fit: var(--galleryFancyboxImageFit, cover);
+	aspect-ratio: var(--galleryFancyboxImageRatio, 2 / 1);
 }

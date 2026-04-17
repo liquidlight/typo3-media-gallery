@@ -8,6 +8,6 @@
 }
 
 .galleryBasic img {
-    object-fit: var(--galleryBasicImageFit, cover);
+	object-fit: var(--galleryBasicImageFit, cover);
 	aspect-ratio: var(--galleryBasicImageRatio, 2 / 1);
 }

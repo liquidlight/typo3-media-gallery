@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace LiquidLight\MediaGallery\Upgrades;
 
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use Symfony\Component\Console\Helper\Table;
-use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Service\FlexFormService;
-use TYPO3\CMS\Install\Updates\ChattyInterface;
 use Symfony\Component\Console\Helper\TableCell;
-use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\OutputInterface;
-use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Database\Query\QueryBuilder;
+use TYPO3\CMS\Core\Service\FlexFormService;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Install\Updates\ChattyInterface;
 use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
 use TYPO3\CMS\Install\Updates\ReferenceIndexUpdatedPrerequisite;
+use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 /**
  * ll_gallery to gallery conversion
@@ -29,6 +29,8 @@ use TYPO3\CMS\Install\Updates\ReferenceIndexUpdatedPrerequisite;
  */
 class MediaGalleryUpgradeWizard implements UpgradeWizardInterface, ChattyInterface
 {
+	public const TABLE_NAME = 'tt_content';
+
 	/**
 	 * @var FlexFormService
 	 */
@@ -44,8 +46,6 @@ class MediaGalleryUpgradeWizard implements UpgradeWizardInterface, ChattyInterfa
 	 */
 	protected $output;
 
-	public const TABLE_NAME = 'tt_content';
-
 	public function __construct()
 	{
 		$this->flexFormService = GeneralUtility::makeInstance(FlexFormService::class);
@@ -58,7 +58,6 @@ class MediaGalleryUpgradeWizard implements UpgradeWizardInterface, ChattyInterfa
 	 * Return the identifier for this wizard
 	 * This should be the same string as used in the ext_localconf class registration
 	 *
-	 * @return string
 	 */
 	public function getIdentifier(): string
 	{
@@ -68,7 +67,6 @@ class MediaGalleryUpgradeWizard implements UpgradeWizardInterface, ChattyInterfa
 	/**
 	 * Return the speaking name of this wizard
 	 *
-	 * @return string
 	 */
 	public function getTitle(): string
 	{
@@ -78,7 +76,6 @@ class MediaGalleryUpgradeWizard implements UpgradeWizardInterface, ChattyInterfa
 	/**
 	 * Return the description for this wizard
 	 *
-	 * @return string
 	 */
 	public function getDescription(): string
 	{
@@ -95,7 +92,6 @@ class MediaGalleryUpgradeWizard implements UpgradeWizardInterface, ChattyInterfa
 	 *
 	 * Called when a wizard reports that an update is necessary
 	 *
-	 * @return bool
 	 */
 	public function executeUpdate(): bool
 	{
@@ -208,7 +204,6 @@ class MediaGalleryUpgradeWizard implements UpgradeWizardInterface, ChattyInterfa
 	 *
 	 * Are there any plugins to be converted?
 	 *
-	 * @return array
 	 */
 	protected function getLegacyGalleryPlugins(): array
 	{
@@ -235,10 +230,7 @@ class MediaGalleryUpgradeWizard implements UpgradeWizardInterface, ChattyInterfa
 	 *
 	 * Update the tt_content and set the engine
 	 *
-	 * @param array $item
-	 * @param string $engine
 	 *
-	 * @return void
 	 */
 	protected function updateItemType(array $item, string $engine): void
 	{
@@ -272,9 +264,7 @@ class MediaGalleryUpgradeWizard implements UpgradeWizardInterface, ChattyInterfa
 	 *
 	 * Move the images from flexform ll_gallery to "media"
 	 *
-	 * @param array $item
 	 *
-	 * @return void
 	 */
 	protected function updateIndividualImageRecords(array $item): void
 	{
@@ -298,10 +288,7 @@ class MediaGalleryUpgradeWizard implements UpgradeWizardInterface, ChattyInterfa
 	 *
 	 * Create a file collection of a folder
 	 *
-	 * @param array $item
-	 * @param array $flexformData
 	 *
-	 * @return int
 	 */
 	protected function createFileCollectionFromFolder(array $item, array $flexformData): int
 	{
@@ -345,10 +332,7 @@ class MediaGalleryUpgradeWizard implements UpgradeWizardInterface, ChattyInterfa
 	 *
 	 * Set the file collection on a Gallery item
 	 *
-	 * @param array $item
-	 * @param int $collection
 	 *
-	 * @return void
 	 */
 	protected function updateFileCollection(array $item, int $collection): void
 	{

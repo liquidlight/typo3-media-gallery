@@ -115,12 +115,12 @@ If you wish to override any [templates](/Resources/Private/Templates/) or [parti
 
 ```
 site {
-	fluidtemplate {
-		media_gallery {
-			partialRootPath = EXT:###YOUR EXT###/Resources/Private/Partials/MediaGallery/
-			templateRootPath = EXT:###YOUR EXT###/Resources/Private/Templates/MediaGallery/
-		}
-	}
+    fluidtemplate {
+        media_gallery {
+            partialRootPath = EXT:###YOUR EXT###/Resources/Private/Partials/MediaGallery/
+            templateRootPath = EXT:###YOUR EXT###/Resources/Private/Templates/MediaGallery/
+        }
+    }
 }
 ```
 

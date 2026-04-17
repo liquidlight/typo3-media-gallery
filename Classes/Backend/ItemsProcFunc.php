@@ -9,9 +9,7 @@ class ItemsProcFunc
 	 *
 	 * Load the engine names & keys for the TCA/Flexform
 	 *
-	 * @param array $config
 	 *
-	 * @return array
 	 */
 	public function getEngines(array $config): array
 	{

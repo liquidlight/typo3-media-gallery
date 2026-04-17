@@ -10,7 +10,7 @@
             "homepage": "https://www.liquidlight.co.uk/"
         },
         {
-            "name": "João Augusto",
+            "name": "Jo\u00e3o Augusto",
             "email": "joao@liquidlight.co.uk"
         },
         {
@@ -21,18 +21,55 @@
     "require": {
         "typo3/cms-core": "^11.5 || ^12.4"
     },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.48",
+        "lintkit/editorconfig-config": "^1.0",
+        "lintkit/php-coding-standards-config": "^2.0",
+        "php-parallel-lint/php-parallel-lint": "^1.4"
+    },
+    "replace": {
+        "liquidlight/media-gallery": "self.version"
+    },
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
             "LiquidLight\\MediaGallery\\": "Classes/"
         }
     },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "typo3/class-alias-loader": true,
+            "typo3/cms-composer-installers": true
+        },
+        "lock": false,
+        "vendor-dir": ".Build/vendor"
+    },
     "extra": {
         "typo3/cms": {
-            "extension-key": "media_gallery"
+            "extension-key": "media_gallery",
+            "web-dir": ".Build/public"
         }
     },
-    "replace": {
-        "liquidlight/media-gallery": "self.version"
+    "scripts": {
+        "clean": "rm -rf .Build",
+        "composer-normalize:dry-run": "@composer-normalize:fix --dry-run",
+        "composer-normalize:fix": "@composer normalize --indent-size 4 --indent-style space",
+        "editorconfig:dry-run": "ec --finder-config .Build/vendor/lintkit/editorconfig-config/ec-cli-config.php",
+        "editorconfig:fix": "@editorconfig:dry-run --fix",
+        "lint": [
+            "@lint:php",
+            "@composer-normalize:fix",
+            "@yaml-lint",
+            "@editorconfig:fix"
+        ],
+        "lint:php": [
+            "@parallel-lint",
+            "@php-cs-fixer:fix"
+        ],
+        "parallel-lint": "parallel-lint ./ --exclude ./.Build",
+        "php-cs-fixer:dry-run": "@php-cs-fixer:fix --dry-run",
+        "php-cs-fixer:fix": "php-cs-fixer fix --config .Build/vendor/lintkit/php-coding-standards-config/.php-cs-fixer.php -v --diff",
+        "yaml-lint": "yaml-lint ./Configuration"
     }
 }
