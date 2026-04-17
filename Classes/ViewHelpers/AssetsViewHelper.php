@@ -2,10 +2,8 @@
 
 namespace LiquidLight\MediaGallery\ViewHelpers;
 
-use Generator;
 use TYPO3\CMS\Core\Page\AssetCollector;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 
@@ -21,6 +19,12 @@ use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 class AssetsViewHelper extends AbstractViewHelper
 {
 	protected $escapeOutput = false;
+
+	private const DEFAULT_ATTRIBUTES = [];
+
+	private const DEFAULT_OPTIONS = [
+		'useNonce' => true
+	];
 
 	public function initializeArguments()
 	{
@@ -78,8 +82,16 @@ class AssetsViewHelper extends AbstractViewHelper
 			foreach ((array)$config[$key] as $i => $item) {
 				// Extract each key to allow customisation
 				$source = is_array($item) ? $item[0] : $item;
-				$attributes = is_array($item) && isset($item[1]) ? $item[1] : [];
-				$options = is_array($item) && isset($item[2]) ? $item[2] : [];
+
+				$attributes = array_merge(
+					self::DEFAULT_ATTRIBUTES,
+					(is_array($item) && isset($item[1]) ? $item[1] : [])
+				);
+
+				$options = array_merge(
+					self::DEFAULT_OPTIONS,
+					(is_array($item) && isset($item[2]) ? $item[2] : [])
+				);
 
 				// Include the asset using the method (e.g. `addInlineJavaScript`)
 				$AssetCollector->$method(
