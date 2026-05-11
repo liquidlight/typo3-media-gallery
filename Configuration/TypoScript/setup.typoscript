@@ -1,1 +1,1 @@
-@import 'EXT:media_gallery/Configuration/Sets/Form/setup.typoscript'
+@import 'EXT:media_gallery/Configuration/Sets/MediaGallery/setup.typoscript'
