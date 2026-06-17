@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<T3DataStructure>
+	<ROOT>
+		<type>array</type>
+		<el>
+			<engine>
+				<TCEforms>
+					<label>LLL:EXT:media_gallery/Resources/Private/Language/locallang_tca.xlf:content_gallery.flexform.engine</label>
+					<config>
+						<type>select</type>
+						<renderType>selectSingle</renderType>
+						<items type="array"></items>
+						<itemsProcFunc>LiquidLight\MediaGallery\Backend\ItemsProcFunc->getEngines</itemsProcFunc>
+						<maxitems>1</maxitems>
+						<size>1</size>
+					</config>
+				</TCEforms>
+			</engine>
+		</el>
+	</ROOT>
+</T3DataStructure>
