@@ -1,8 +1,5 @@
 <?php
 
-use TYPO3\CMS\Core\Information\Typo3Version;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-
 defined('TYPO3') or die();
 call_user_func(function () {
 	// Adds the content element to the "Type" dropdown
@@ -18,10 +15,9 @@ call_user_func(function () {
 		'after'
 	);
 
-	$file = (GeneralUtility::makeInstance(Typo3Version::class)->getMajorVersion()) >= 13 ? 'ContentGallery.xml' : 'Legacy/ContentGallery.xml';
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
 		'*',
-		'FILE:EXT:media_gallery/Configuration/FlexForms/' . $file,
+		'FILE:EXT:media_gallery/Configuration/FlexForms/ContentGallery.xml',
 		'liquidlight_contentgallery',
 	);
 

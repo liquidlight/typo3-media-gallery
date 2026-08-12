@@ -4,7 +4,6 @@ namespace LiquidLight\MediaGallery\ViewHelpers;
 
 use TYPO3\CMS\Core\Page\AssetCollector;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
@@ -26,7 +25,7 @@ class AssetsViewHelper extends AbstractViewHelper
 
 	protected $escapeOutput = false;
 
-	public function initializeArguments()
+	public function initializeArguments(): void
 	{
 		// Needs an instance of a file
 		$this->registerArgument('engine', 'array', 'The engine configuration', true);
@@ -36,13 +35,10 @@ class AssetsViewHelper extends AbstractViewHelper
 	 * Returns the correctly translated copyright
 	 *
 	 */
-	public static function renderStatic(
-		array $arguments,
-		\Closure $renderChildrenClosure,
-		RenderingContextInterface $renderingContext
-	) {
+	public function render()
+	{
 		// Get the config from LocalConf
-		$config = $arguments['engine'];
+		$config = $this->arguments['engine'];
 
 		// Don't include any assets at all - no point continuing
 		if (
