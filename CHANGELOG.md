@@ -1,3 +1,13 @@
+# 3.0.0
+
+**7th September 2026**
+
+#### Dependencies
+
+- Drop TYPO3 11 support
+- Drop TYPO3 12 support
+- Add TYPO3 14 support
+
 # 2.2.0
 
 **7th September 2026**
