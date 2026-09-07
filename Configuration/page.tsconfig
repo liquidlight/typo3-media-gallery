@@ -1,0 +1,2 @@
+@import "./Configuration/TSconfig/Page/Mod/Wizards/MediaGallery.tsconfig"
+@import "./Configuration/TSconfig/Page/Mod/Wizards/ContentGallery.tsconfig"

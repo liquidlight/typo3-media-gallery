@@ -1,8 +1,5 @@
 <?php
 
-use TYPO3\CMS\Core\Information\Typo3Version;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-
 defined('TYPO3') or die();
 call_user_func(function () {
 	// Adds the content element to the "Type" dropdown
@@ -17,14 +14,6 @@ call_user_func(function () {
 		'uploads',
 		'after'
 	);
-
-	$file = (GeneralUtility::makeInstance(Typo3Version::class)->getMajorVersion()) >= 13 ? 'MediaGallery.xml' : 'Legacy/MediaGallery.xml';
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-		'*',
-		'FILE:EXT:media_gallery/Configuration/FlexForms/' . $file,
-		'liquidlight_mediagallery',
-	);
-
 
 	// Configure the default backend fields for the content element
 	$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['liquidlight_mediagallery'] = 'apps-clipboard-images';
@@ -50,4 +39,11 @@ call_user_func(function () {
 			--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
 		',
 	];
+
+	// Must run after the "types" assignment above, which would otherwise overwrite this
+	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+		'*',
+		'FILE:EXT:media_gallery/Configuration/FlexForms/MediaGallery.xml',
+		'liquidlight_mediagallery',
+	);
 });
