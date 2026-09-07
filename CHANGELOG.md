@@ -1,3 +1,16 @@
+# 2.2.0
+
+**7th September 2026**
+
+#### Feature
+
+- Add support for TYPO3 13 (#8)
+
+#### Fix
+
+- Correct Typoscript include path
+- Add nonce for scripts & styles
+
 # 2.1.0
 
 **28th July 2025**
