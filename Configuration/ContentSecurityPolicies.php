@@ -17,9 +17,8 @@ return Map::fromEntries(
         // NOTICE: When using `MutationMode::Set` existing declarations will be overridden
         new MutationCollection(
             // results in `default-src 'self'`
-            new Mutation(MutationMode::Extend, Directive::ScriptSrc, SourceScheme::data, new UriValue('https://cdn.jsdelivr.net')),
+            new Mutation(MutationMode::Extend, Directive::ScriptSrc, new UriValue('https://cdn.jsdelivr.net')),
             new Mutation(MutationMode::Extend, Directive::StyleSrc, SourceScheme::data, new UriValue('https://cdn.jsdelivr.net')),
-            new Mutation(MutationMode::Extend, Directive::StyleSrcElem, SourceScheme::data, new UriValue('https://cdn.jsdelivr.net')),
         ),
     ]
 );
